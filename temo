@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contagem regressiva de dias</title>
+</head>
+<body>
+  <h1>Contagem regressiva de dias</h1>
+  <div id="countdown"></div>
+
+  <script>
+    // Data alvo (19 de outubro de 2023)
+    const targetDate = new Date('2023-10-19T00:00:00');
+
+    function updateCountdown() {
+      const currentDate = new Date();
+      const timeDifference = targetDate - currentDate;
+      const daysRemaining = Math.floor(timeDifference / (1000 * 60 * 60 * 24)); // Calcula os dias restantes
+
+      const countdownElement = document.getElementById('countdown');
+      if (daysRemaining > 0) {
+        countdownElement.textContent = `Faltam ${daysRemaining} dias até 19/10/2023.`;
+      } else {
+        countdownElement.textContent = 'Hoje é o dia!';
+      }
+    }
+
+    // Chama a função inicialmente
+    updateCountdown();
+
+    // Atualiza a contagem a cada segundo (opcional)
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
